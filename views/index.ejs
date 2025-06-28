@@ -1,0 +1,36 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Express App</title>
+  </head>
+  <body>
+    <h1>Manage users</h1>
+    <a href="/add">Add User</a>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Hành động</th>
+      </tr>
+      <% users.forEach(user => { %>
+      <tr>
+        <td><%=user.user_id%></td>
+        <td><%=user.name%></td>
+        <td><%=user.email%></td>
+        <td>
+          <form action="/edit/<%=user.user_id%>" method="get">
+            <button type="submit">Edit</button>
+          </form>
+          <form action="/delete/<%=user.user_id%>" method="post">
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+      <%})%>
+    </table>
+  </body>
+</html>
