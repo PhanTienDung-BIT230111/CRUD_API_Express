@@ -21,5 +21,5 @@ app.use("/",userRoute)
 const port = 8085;
 
 app.listen(port, () => {
-    console.log(`Server is listening on port ${port}`);
+    console.log(`Server is listening on port : http://localhost:${port}`);
 });
